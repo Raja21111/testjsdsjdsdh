@@ -5,8 +5,8 @@ document.getElementById('login-btn').addEventListener('click', function() {
 
     // VULNERABILITY 1: Hardcoded Client-Side Authentication
     // Anyone can read this logic and see exactly what the valid credentials are.
-    if (user === "admin" && pass === "AdminPass2026!") {
-        error.innerText = "Login Successful! Redirecting...";
+    // Authentication logic moved to the server for security; client can only send credentials.
+        error.innerText = "<MASKED_HIGH_ENTROPY>";
         
         // VULNERABILITY 2: The 'eval()' Sink (Remote Code Execution)
         // Instead of using a safe function, the dev uses eval() to "process" 
@@ -16,6 +16,6 @@ document.getElementById('login-btn').addEventListener('click', function() {
         eval(command); 
         
     } else {
-        error.innerText = "Invalid Login!";
+        error.innerText = "<MASKED_HIGH_ENTROPY>";
     }
 });
